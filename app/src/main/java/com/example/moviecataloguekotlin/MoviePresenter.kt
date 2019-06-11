@@ -15,7 +15,6 @@ import retrofit2.adapter.rxjava2.Result.response
 
 
 
-@Suppress("UNREACHABLE_CODE")
 class MoviePresenter(val view: MovieDiscoverContract.View) : MovieDiscoverContract.Presenter {
 
 
