@@ -8,9 +8,6 @@ import com.example.moviecataloguekotlin.model.MovieResponse
 import com.example.moviecataloguekotlin.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.adapter.rxjava2.Result.response
-import retrofit2.adapter.rxjava2.Result.response
-
 
 
 
