@@ -1,25 +1,15 @@
-package com.example.moviecataloguekotlin
+package com.example.moviecataloguekotlin.feature.Movies
 
 import android.util.Log
-import android.widget.Toast
 import com.example.moviecataloguekotlin.BuildConfig.API_KEY
-import com.example.moviecataloguekotlin.model.MovieDiscover
 import com.example.moviecataloguekotlin.model.MovieResponse
 import com.example.moviecataloguekotlin.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Response
 
-
-
-
-class MoviePresenter(val view: MovieDiscoverContract.View) : MovieDiscoverContract.Presenter {
-
-
+class MoviePresenter(val view: MovieContract.View) : MovieContract.Presenter {
 
     override fun requestDataFromServer() {
-
-//        view.showLoading()
-
         ApiConfig().instance().getListMovie(API_KEY)
             .enqueue(object : retrofit2.Callback<MovieResponse> {
                 override fun onFailure(call: Call<MovieResponse>?, t: Throwable) {
@@ -27,11 +17,8 @@ class MoviePresenter(val view: MovieDiscoverContract.View) : MovieDiscoverContra
                 }
 
                 override fun onResponse(call: Call<MovieResponse>?, response: Response<MovieResponse>?) {
-                    val movieItems = response?.body()?.results
-                    val movie = response?.body()
-                    view.setData(movieItems)
-
-//                    view.
+                    val moviesItem = response?.body()?.results
+                    view.setData(moviesItem)
                 }
             })
     }

@@ -10,13 +10,11 @@ import java.util.concurrent.TimeUnit
 
 class ApiConfig {
 
-    private val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-
     private val client = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         })
-//        .addInterceptor(loggingInterceptor)
+
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
@@ -31,7 +29,6 @@ class ApiConfig {
     }
 
     fun instance() : ApiInterface {
-
         return retrofit().create(ApiInterface::class.java)
     }
 }
