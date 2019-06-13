@@ -26,7 +26,6 @@ class MoviesFragment : Fragment(), MovieContract.View {
     private var results: MutableList<Movie> = mutableListOf()
 
     private lateinit var presenter: MoviePresenter
-    private lateinit var listMovies: RecyclerView
     private lateinit var movieAdapter: MovieAdapter
 
 
@@ -34,7 +33,6 @@ class MoviesFragment : Fragment(), MovieContract.View {
 
         val view=  inflater.inflate(R.layout.fragment_movies, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_movies)
-        // recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         movieAdapter = MovieAdapter(results) {
 
@@ -50,7 +48,6 @@ class MoviesFragment : Fragment(), MovieContract.View {
     override fun setData(data: List<Movie>) {
         results.clear()
         data?.let { results.addAll(data) }
-        // results.addAll(data)
         movieAdapter.notifyDataSetChanged()
     }
 
