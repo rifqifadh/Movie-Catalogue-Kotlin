@@ -1,7 +1,8 @@
 package com.example.moviecataloguekotlin.feature.Movies
 
 import com.example.moviecataloguekotlin.Base.BaseView
-import com.example.moviecataloguekotlin.model.MovieDiscover
+import com.example.moviecataloguekotlin.model.Movie
+import com.example.moviecataloguekotlin.model.MovieResponse
 
 interface MovieContract {
 
@@ -16,7 +17,7 @@ interface MovieContract {
 //         fun onResponseFailure(throwable: Throwable)
 //     }
 
-    interface View: BaseView {
-        fun setData(movieItemList: ArrayList<MovieDiscover>?)
+    interface View : BaseView {
+        fun setData(data: List<Movie>)
     }
 }

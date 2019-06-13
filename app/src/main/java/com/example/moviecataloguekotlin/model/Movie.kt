@@ -2,7 +2,7 @@ package com.example.moviecataloguekotlin.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MovieDiscover (
+data class Movie (
 
     @SerializedName("title")
     var title: String? = null,
