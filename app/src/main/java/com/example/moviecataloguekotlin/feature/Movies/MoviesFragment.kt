@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,8 @@ class MoviesFragment : Fragment(), MovieContract.View {
 
         val view=  inflater.inflate(R.layout.fragment_movies, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_movies)
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        // recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         movieAdapter = MovieAdapter(results) {
 
         }
